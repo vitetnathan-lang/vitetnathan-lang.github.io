@@ -1,35 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Artefact du Fondateur — Arborym</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Relique — Arborym</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 <style>
-body{background:#0d0b14;color:#e4d9c5;font-family:Georgia,serif;margin:0;padding:0}
-.container{max-width:900px;margin:40px auto;padding:20px;text-align:center}
-.relic-box{border:2px solid #c4a76a;padding:30px;border-radius:12px;background:rgba(255,255,255,0.03)}
-.button{padding:12px 28px;border-radius:8px;border:2px solid #c4a76a;background:#0f0d10;color:#cdb67a;cursor:pointer}
-.logo{width:160px;filter:drop-shadow(0 0 12px #b88a2b)}
+:root{--bg:#0b0a0f;--gold:#c9a85a;--muted:#d9ccb3}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 10% 10%, rgba(30,24,40,0.6), transparent 20%), var(--bg);color:var(--muted);font-family:Roboto,system-ui,Arial,Helvetica,sans-serif; -webkit-font-smoothing:antialiased}
+.container{max-width:980px;margin:36px auto;padding:24px}
+.header{display:flex;align-items:center;gap:20px;justify-content:center;margin-bottom:18px}
+.title{font-family:Cinzel, serif;color:var(--gold);font-size:28px;letter-spacing:2px;text-transform:uppercase}
+.subtitle{font-size:14px;opacity:0.9}
+.seal{width:160px;height:160px;display:block;filter:drop-shadow(0 8px 20px rgba(200,150,60,0.14));border-radius:14px}
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(200,160,80,0.06);padding:22px;border-radius:12px;margin-top:18px;text-align:center}
+.relic-name{color:var(--gold);font-weight:700;font-size:20px;margin-bottom:8px}
+.lead{max-width:760px;margin:12px auto;line-height:1.6;color:#e6dcc1}
+.button{display:inline-block;padding:12px 20px;border-radius:10px;border:2px solid var(--gold);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.06));color:var(--gold);cursor:pointer;font-weight:600;margin-top:14px}
+.qr-wrap{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.qr-wrap img{width:140px;height:140px;background:white;padding:8px;border-radius:8px}
+.small{font-size:12px;opacity:0.85;color:#cfc3a7}
+
+/* animated runes background */
+.runes{position:fixed;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:0.07;background-image:radial-gradient(circle at 10% 30%, rgba(200,160,60,0.08), transparent 16%), radial-gradient(circle at 80% 70%, rgba(120,90,180,0.06), transparent 16%);z-index:0}
+
+/* responsive */
+@media (max-width:640px){.header{flex-direction:column}.seal{width:140px;height:140px}}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Artefact du Fondateur</h1>
-<div class="subtitle">Réservé à Arborym — Legendary Operator</div>
-<div style="margin-bottom:25px;">
-<img src="arborym_seal_hd.png" alt="Sceau" class="logo" />
+<div class="runes"></div>
+<div class="container" role="main" aria-labelledby="title">
+  <div class="header" id="title">
+    <img src="arborym_seal_hd.png" alt="Sceau Arborym" class="seal" id="sealImg"/>
+    <div>
+      <div class="title">Artefact du Fondateur</div>
+      <div class="subtitle">Réservé à <strong>Arborym</strong> — Legendary Operator</div>
+    </div>
+  </div>
+
+  <div class="card" id="card">
+    <div class="relic-name">Relique Légendaire — Edition Arborym</div>
+    <p class="lead">Il fut un temps où nous défendions le Monde des Douze, et aujourd'hui nous défendons notre rang en FPS. Sous la bannière d'Arborym, compagnon de raids et de clutch, nous avons partagé quêtes, sel en vocal, et tirs improbables.</p>
+    <button class="button" id="revealBtn" aria-label="Débloquer en réel">Débloquer en réel</button>
+
+    <div class="qr-wrap" id="qrWrap" style="display:none">
+      <img src="arborym_qr_updated.png" alt="QR code vers la relique"/>
+      <div class="small">Scanne ce QR pour accéder à la relique depuis ton téléphone.</div>
+    </div>
+
+    <p class="small" style="margin-top:14px">Astuce : si le QR ne fonctionne pas, ouvre ce site sur ton navigateur mobile et partage l'URL.</p>
+  </div>
 </div>
-<div class="relic-box">
-<div style="font-size:1.4rem;color:#f4e8b7">Relique Légendaire — Edition Arborym</div>
-<p>Statut : <strong>Débloqué</strong></p>
-<p>Rareté : <strong>Mythique</strong></p>
-<p>Condition : <strong>En attente d'invocation physique</strong></p>
-</div>
-<p style="max-width:700px;margin:20px auto;line-height:1.6;">Il fut un temps où nous défendions le Monde des Douze, et aujourd'hui nous défendons notre rang en FPS. Sous la bannière d'Arborym, compagnon de raids et de clutch, nous avons partagé quêtes, sel en vocal, et tirs improbables.</p>
-<button class="button" onclick="reveal()">Débloquer en réel</button>
-</div>
+
 <script>
-function reveal(){document.querySelector('.container').innerHTML='<div style="text-align:center;padding:40px"><img src="arborym_seal_pulse.gif" style="width:320px"/><h2 style="color:#f4e8b7">Relique Révélée</h2><p>Ton cadeau arrive IRL. Prépare-toi 🎁🔥</p></div>';}
+// Reveal logic: first click shows animated seal and message; second click shows the QR as confirmation
+const revealBtn = document.getElementById('revealBtn');
+const qrWrap = document.getElementById('qrWrap');
+let step = 0;
+revealBtn.addEventListener('click', ()=>{
+  if(step===0){
+    // animate seal (scale pulse) and change text
+    const seal = document.getElementById('sealImg');
+    seal.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}], {duration:900,iterations:1,easing:'ease-out'});
+    revealBtn.textContent='Invocation en cours...';
+    setTimeout(()=>{
+      revealBtn.textContent='Débloquer en réel';
+      step=1;
+      // flash card
+      document.getElementById('card').style.boxShadow='0 8px 30px rgba(200,150,60,0.12)';
+      // show message
+      const msg = document.createElement('div');
+      msg.style.marginTop='12px';
+      msg.style.color='#f4e8b7';
+      msg.innerHTML='Relique prête. Pour confirmer l'activation, scanne le QR ci‑dessous ou ouvre cette page sur ton mobile.';
+      document.getElementById('card').appendChild(msg);
+      qrWrap.style.display='flex';
+    },900);
+  } else {
+    // final reveal: show triumphant message
+    document.body.scrollIntoView({behavior:'smooth'});
+    const card = document.getElementById('card');
+    card.innerHTML = '<div style="padding:18px"><h2 style="color:var(--gold)">Relique Révélée</h2><p style="color:#efe6c8">Ton cadeau arrive IRL. Prépare‑toi 🎁🔥</p><p class="small">Merci pour toutes ces games épiques.</p></div>';
+  }
+});
 </script>
 </body>
 </html>
