@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Artefact du Fondateur — Arborym</title>
+<style>
+body{background:#0d0b14;color:#e4d9c5;font-family:Georgia,serif;margin:0;padding:0}
+.container{max-width:900px;margin:40px auto;padding:20px;text-align:center}
+.relic-box{border:2px solid #c4a76a;padding:30px;border-radius:12px;background:rgba(255,255,255,0.03)}
+.button{padding:12px 28px;border-radius:8px;border:2px solid #c4a76a;background:#0f0d10;color:#cdb67a;cursor:pointer}
+.logo{width:160px;filter:drop-shadow(0 0 12px #b88a2b)}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Artefact du Fondateur</h1>
+<div class="subtitle">Réservé à Arborym — Legendary Operator</div>
+<div style="margin-bottom:25px;">
+<img src="arborym_seal_hd.png" alt="Sceau" class="logo" />
+</div>
+<div class="relic-box">
+<div style="font-size:1.4rem;color:#f4e8b7">Relique Légendaire — Edition Arborym</div>
+<p>Statut : <strong>Débloqué</strong></p>
+<p>Rareté : <strong>Mythique</strong></p>
+<p>Condition : <strong>En attente d'invocation physique</strong></p>
+</div>
+<p style="max-width:700px;margin:20px auto;line-height:1.6;">Il fut un temps où nous défendions le Monde des Douze, et aujourd'hui nous défendons notre rang en FPS. Sous la bannière d'Arborym, compagnon de raids et de clutch, nous avons partagé quêtes, sel en vocal, et tirs improbables.</p>
+<button class="button" onclick="reveal()">Débloquer en réel</button>
+</div>
+<script>
+function reveal(){document.querySelector('.container').innerHTML='<div style="text-align:center;padding:40px"><img src="arborym_seal_pulse.gif" style="width:320px"/><h2 style="color:#f4e8b7">Relique Révélée</h2><p>Ton cadeau arrive IRL. Prépare-toi 🎁🔥</p></div>';}
+</script>
+</body>
+</html>
